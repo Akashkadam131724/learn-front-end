@@ -1,15 +1,16 @@
 // Header.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
-
-const { Header } = Layout;
+import {   Menu } from 'antd';
+ 
 const { SubMenu } = Menu;
 
 const AppHeader = () => {
   return (
-    <Header>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+    <div  className="app-header">
+      <Menu  defaultSelectedKeys={['1']}  mode="inline"  style={{
+      width: 256, height: "100vh"
+    }}>
+        
         <Menu.Item key="1"><Link to="/">Homepage</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/Counter">Counter</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/explorer">Explorer</Link></Menu.Item>
@@ -22,7 +23,7 @@ const AppHeader = () => {
         <Menu.Item key="10"><Link to="/tick-tack-toe">Tick Tack Toe</Link></Menu.Item>
         <Menu.Item key="11"><Link to="/respond-events">Respond Events</Link></Menu.Item>
       </Menu>
-    </Header>
+    </div>
   );
 };
 
