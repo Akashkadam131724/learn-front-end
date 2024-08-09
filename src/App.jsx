@@ -21,11 +21,11 @@ import {  Row,Col } from "antd";
 function App() {
   return (
     <Router>
-      <Row gutter={[64,0]}>
+      <Row gutter={[64,0]}>  
         <Col span={4}>
-         <AppHeader />
-        </Col>
-        <Col span={20}>
+          <AppHeader />
+          </Col>
+      <Col span={20}>
           <Routes>
               <Route path="/" element={<Counter />} />
               <Route path="/Counter" element={<Explorer />} />
@@ -39,6 +39,7 @@ function App() {
               <Route path="/respond-events" element={<RespondEvent />} />
             </Routes>
         </Col>
+       
       </Row>
   </Router>
 
