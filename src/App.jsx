@@ -27,8 +27,8 @@ function App() {
           </Col>
       <Col span={20}>
           <Routes>
-              <Route path="/" element={<Counter />} />
-              <Route path="/Counter" element={<Explorer />} />
+              {/* <Route path="/" element={< AppHeader/>} /> */}
+              <Route path="/Counter" element={<Counter />} />
               <Route path="/explorer" element={<Explorer />} />
               <Route path="/think-in-react" element={<ThinkInReact />} />
               <Route path="/Hooks" element={<LearnHooks />} />
