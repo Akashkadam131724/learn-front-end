@@ -13,24 +13,22 @@ import ThinkInReact from "./components/hooks/thinking-in-react/think-in-react";
 import RespondEvent from "./components/respond-events";
 import AppHeader from "./components/header";
 import {  Row,Col } from "antd";
- 
-
- 
-
+import StateComponentsMemory from "./components/respond-events/StateComponentsMemory";
 
 function App() {
   return (
     <Router>
       <Row gutter={[64,0]}>  
-        <Col span={4}>
+        <Col span={8}>
           <AppHeader />
           </Col>
-      <Col span={20}>
+      <Col span={16}>
           <Routes>
               {/* <Route path="/" element={< AppHeader/>} /> */}
               <Route path="/Counter" element={<Counter />} />
               <Route path="/explorer" element={<Explorer />} />
               <Route path="/think-in-react" element={<ThinkInReact />} />
+              <Route path="/state-component-memory" element={<StateComponentsMemory />} />
               <Route path="/Hooks" element={<LearnHooks />} />
               <Route path="/Hooks/UseState" element={<UseStateLearn />} />
               <Route path="/Hooks/UseEffect" element={<UseEffectLearn />} />
@@ -39,7 +37,6 @@ function App() {
               <Route path="/respond-events" element={<RespondEvent />} />
             </Routes>
         </Col>
-       
       </Row>
   </Router>
 

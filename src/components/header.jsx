@@ -18,6 +18,7 @@ const AppHeader = () => {
        
         <SubMenu key="11" title="Adding inter activity">
           <Menu.Item key="7"><Link to="/respond-events">Respond Events</Link></Menu.Item>
+          <Menu.Item key="8"><Link to="/state-component-memory">{`State A Component's memory`}</Link></Menu.Item>
         </SubMenu> 
         <SubMenu key="5" title="Hooks">
           <Menu.Item key="7"><Link to="/Hooks/UseState">UseState Learn</Link></Menu.Item>
