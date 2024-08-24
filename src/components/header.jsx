@@ -31,6 +31,13 @@ const AppHeader = () => {
       ],
     },
     {
+      key: 'ss',
+      label: <a href='https://react.dev/learn/managing-state'  target="_blank"
+      rel="noopener noreferrer">
+        Managing state Important
+        </a> ,
+    },
+    {
       key: '13',
       label: 'Escape hatches',
       children: [
@@ -79,6 +86,18 @@ const AppHeader = () => {
               rel="noopener noreferrer"
             >
             you-might-not-need-an-effect
+            </a>
+          ),
+        },
+         {
+           key: '8aa3A',
+          label: (
+            <a
+              href="https://react.dev/learn/lifecycle-of-reactive-effects"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+          Lifecycle of Reactive Effects
             </a>
           ),
         },

@@ -104,6 +104,7 @@ const UseEffectLearn = () => {
       <h4>Challenge</h4>
         <Challenge3 />
   <Divider />
+  <h1>No need effects</h1>
   <NOneedEffect/>
     </div>
   );
