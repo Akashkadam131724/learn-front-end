@@ -1,6 +1,6 @@
 import { Divider } from 'antd';
 import { useState, useRef, useEffect } from 'react';
-import NOneedEffect from './use-effect-no-need';
+import NOneedEffect from './no-need-effecct/use-effect-no-need';
 
 const UseEffectLearn = () => {
  
@@ -219,7 +219,7 @@ function Playground() {
     console.log('🔵 Schedule "' + text + '" log');
     const timeoutId = setTimeout(onTimeout, 3000);
 
-    // return () => {
+    // return () => { // this to be removed when reading
     //   console.log('🟡 Cancel "' + text + '" log');
     //   clearTimeout(timeoutId);
     // };

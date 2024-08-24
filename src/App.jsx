@@ -3,7 +3,7 @@ import LearnHooks from "./components/hooks/LearnHooks";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import UseStateLearn from "./components/hooks/all-hooks/use-state-learn";
-import UseEffectLearn from "./components/hooks/all-hooks/use-effetc-learn";
+import UseEffectLearn from "./components/hooks/all-hooks/useEffect/use-effetc-learn"
 
 import Counter from "./components/learn-basic-features/counter/Counter";
 import Timer from "./components/pages/projects/timer/timer";
