@@ -70,6 +70,18 @@ const AppHeader = () => {
             </a>
           ),
         },
+         {
+           key: '8aa3',
+          label: (
+            <a
+              href="https://react.dev/learn/you-might-not-need-an-effect"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            you-might-not-need-an-effect
+            </a>
+          ),
+        },
       ],
     },
     {
