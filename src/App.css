@@ -103,7 +103,6 @@ body {
   top: 0;
   left: 0;
   height: 100vh; /* Full height for vertical menu */
-  width: 256px; /* Match the width used in Menu component */
   z-index: 1000; /* Ensure it stays above other content */
   background-color: #fff; /* Background color to match the light theme */
   overflow: auto; /* Scroll if needed */

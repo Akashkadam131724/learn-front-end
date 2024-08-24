@@ -20,11 +20,11 @@ import UseRefLearn from "./components/hooks/all-hooks/use-ref-learn";
 function App() {
   return (
     <Router>
-      <Row gutter={[64,0]}>  
-        <Col span={8}>
+      <Row  >  
+        <Col span={6}>
           <AppHeader />
           </Col>
-       <Col span={16}>
+       <Col span={18}>
           <Routes>
               {/* <Route path="/" element={< AppHeader/>} /> */}
               <Route path="/Counter" element={<Counter />} />

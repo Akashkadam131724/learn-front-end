@@ -1,3 +1,4 @@
+import { Divider } from "antd";
 import { useState, useRef,forwardRef,useImperativeHandle } from "react";
 import { flushSync } from 'react-dom';
 
@@ -7,39 +8,30 @@ const UseRefLearn = () => {
     <>
     <h4>UserRef : Refs are an escape hatch. You should only use them when you have to “step outside React”. Common examples of this include managing focus, scroll position, or calling browser APIs that React does not expose.</h4>
     Chat : 1  <Chat1 />
-      <br />
-      <br />
-      <br />
+    <Divider/>
+
       Chat : 2  <Chat2 />
-      <br />
-      <br />
-      <br />
-      <br />
+      <Divider/>
+
+      
       Debounced Button : <DebouncedButton onClick={() => alert("Lullaby sung!")}>
         Sing a lullaby
       </DebouncedButton>
-      <br/>
-      <br/>
-      <br/>
+      <Divider/>
+
       CATS : 
       <CatFriends />
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <Divider/>
+
       With ForwardRef<Form />
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <Divider/>
+
       With useImperativeHandle <Form2 />
-      <br/>
-      <br/>
-      <br/>
+      <Divider/>
+
       <TodoList />
-      <br/>
-      <br/>
-      <br/>
+      <Divider/>
+
       <h5>
         {`If you stick to non-destructive actions like focusing and scrolling, you shouldn’t encounter any problems. However, if you try to modify the DOM manually, you can risk conflicting with the changes React is making.
 
@@ -49,6 +41,13 @@ const UseRefLearn = () => {
 
       </h5>
       <Counter />
+      <Divider/>
+
+       
+      <h4>Challenges</h4>
+      1:  <VideoPlayer />
+      <br></br>
+      2. <a href="https://codesandbox.io/p/sandbox/react-dev-6dlvvz?file=%2Fsrc%2FApp.js&utm_medium=sandpack" target="_blank" rel="noreferrer">Challenge 2</a>
     </>
   );
 };
@@ -326,6 +325,45 @@ MyInput2.displayName = 'MyInput2';
     </div>
   );
 }
+
+// -----------
+
+function VideoPlayer() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const ref = useRef(null);
+
+  function handleClick() {
+    const nextIsPlaying = !isPlaying;
+    setIsPlaying(nextIsPlaying);
+
+    if (nextIsPlaying) {
+      ref.current.play();
+    } else {
+      ref.current.pause();
+    }
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>
+        {isPlaying ? 'Pause' : 'Play'}
+      </button>
+      <br/>
+      <video
+        width="250"
+        ref={ref}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      >
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </>
+  )
+}
+
 
 
 

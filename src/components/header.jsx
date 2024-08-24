@@ -1,53 +1,129 @@
 // Header.jsx
 import { Link } from 'react-router-dom';
-import {   Menu } from 'antd';
- 
-const { SubMenu } = Menu;
+import { Menu } from 'antd';
 
 const AppHeader = () => {
-  return (
-    <div  className="app-header">
-      <Menu  defaultSelectedKeys={['1']}  mode="inline"  style={{
-      width: 256, height: "100vh"
-    }}>
-        
-        <Menu.Item key="1"><Link to="/">Homepage</Link></Menu.Item>
-        <Menu.Item key="2"><Link to="/Counter">Counter</Link></Menu.Item> 
-        <Menu.Item key="4"><Link to="/think-in-react">Think In React</Link></Menu.Item>
-
-       
-        <SubMenu key="11" title="Adding inter activity">
-          <Menu.Item key="7"><Link to="/respond-events">Respond Events</Link></Menu.Item>
-          <Menu.Item key="8"><Link to="/state-component-memory">{`State A Component's memory`}</Link></Menu.Item>
-        </SubMenu> 
-
-        <SubMenu key="13" title="Escape hatches">
-          <Menu.Item key="83">
-          <a href="https://react.dev/learn/manipulating-the-dom-with-refs" target="_blank" rel="noopener noreferrer">
+  const menuItems = [
+    {
+      key: '1',
+      label: <Link to="/">Homepage</Link>,
+    },
+    {
+      key: '2',
+      label: <Link to="/Counter">Counter</Link>,
+    },
+    {
+      key: '4',
+      label: <Link to="/think-in-react">Think In React</Link>,
+    },
+    {
+      key: '11',
+      label: 'Adding inter activity',
+      children: [
+        {
+          key: 'aa7',
+          label: <Link to="/respond-events">Respond Events</Link>,
+        },
+        {
+          key: '8sas',
+          label: <Link to="/state-component-memory">{`State A Component's memory`}</Link>,
+        },
+      ],
+    },
+    {
+      key: '13',
+      label: 'Escape hatches',
+      children: [
+        {
+          key: '82',
+          label: (
+            <a
+              href="https://react.dev/learn/referencing-values-with-refs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              referencing-values-with-refs
+            </a>
+          ),
+        },
+        {
+          key: '83a',
+          label: (
+            <a
+              href="https://react.dev/learn/manipulating-the-dom-with-refs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Manipulating DOM Elements
             </a>
-            </Menu.Item>
-        </SubMenu> 
-   
+          ),
+        },
+        {
+          key: '8a3',
+          label: (
+            <a
+              href="https://react.dev/learn/synchronizing-with-effects"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              synchronizing-with-effects
+            </a>
+          ),
+        },
+      ],
+    },
+    {
+      key: '5',
+      label: 'Hooks',
+      children: [
+        {
+          key: '7aas',
+          label: <Link to="/Hooks/UseState">UseState Learn</Link>,
+        },
+        {
+          key: '8a',
+          label: <Link to="/Hooks/UseEffect">UseEffect Learn</Link>,
+        },
+        {
+          key: '8as',
+          label: <Link to="/Hooks/useRef">UseRef Learn</Link>,
+        },
+      ],
+    },
+    {
+      key: '7',
+      label: 'Mini projects',
+      children: [
+        {
+          key: '10',
+          label: <Link to="/tick-tack-toe">Tick Tack Toe</Link>,
+        },
+        {
+          key: '9',
+          label: <Link to="/Timer">Timer</Link>,
+        },
+      ],
+    },
+    {
+      key: '8',
+      label: 'Challenges',
+      children: [
+        {
+          key: '3asa',
+          label: <Link to="/explorer">Explorer</Link>,
+        },
+      ],
+    },
+  ];
 
-        <SubMenu key="5" title="Hooks">
-          <Menu.Item key="7"><Link to="/Hooks/UseState">UseState Learn</Link></Menu.Item>
-          <Menu.Item key="8"><Link to="/Hooks/UseEffect">UseEffect Learn</Link></Menu.Item>
-          <Menu.Item key="8"><Link to="/Hooks/useRef">UseRef Learn</Link></Menu.Item>
-        </SubMenu> 
-
-        <SubMenu key="7" title="Mini projects">
-          <Menu.Item key="10"><Link to="/tick-tack-toe">Tick Tack Toe</Link></Menu.Item>
-          <Menu.Item key="9"><Link to="/Timer">Timer</Link></Menu.Item>
-        </SubMenu> 
-
-        <SubMenu key="8" title="Challenges">
-        <Menu.Item key="3"><Link to="/explorer">Explorer</Link></Menu.Item>
-        </SubMenu> 
-
-     
-        
-      </Menu>
+  return (
+    <div className="app-header">
+      <Menu
+        defaultSelectedKeys={['1']}
+        mode="inline"
+        style={{ height: '100vh', width: '100%' }}
+        items={menuItems}
+      />
     </div>
   );
 };
