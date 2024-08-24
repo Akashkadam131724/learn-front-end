@@ -14,6 +14,8 @@ import RespondEvent from "./components/respond-events";
 import AppHeader from "./components/header";
 import {  Row,Col } from "antd";
 import StateComponentsMemory from "./components/respond-events/StateComponentsMemory";
+import UseReducerLearn from "./components/hooks/all-hooks/use-reducer-learn";
+import UseRefLearn from "./components/hooks/all-hooks/use-ref-learn";
 
 function App() {
   return (
@@ -22,19 +24,28 @@ function App() {
         <Col span={8}>
           <AppHeader />
           </Col>
-      <Col span={16}>
+       <Col span={16}>
           <Routes>
               {/* <Route path="/" element={< AppHeader/>} /> */}
               <Route path="/Counter" element={<Counter />} />
-              <Route path="/explorer" element={<Explorer />} />
               <Route path="/think-in-react" element={<ThinkInReact />} />
               <Route path="/state-component-memory" element={<StateComponentsMemory />} />
+
+              {/* --------------- */}
               <Route path="/Hooks" element={<LearnHooks />} />
               <Route path="/Hooks/UseState" element={<UseStateLearn />} />
               <Route path="/Hooks/UseEffect" element={<UseEffectLearn />} />
-              <Route path="/Timer" element={<Timer />} />
-              <Route path="/tick-tack-toe" element={<TickTackToe />} />
+              <Route path="/Hooks/UseRef" element={<UseRefLearn />} />
+              <Route path="/Hooks/UseReducer" element={<UseReducerLearn/>} />
+
+              {/* -------------------------- */}
               <Route path="/respond-events" element={<RespondEvent />} />
+              <Route path="/respond-events" element={<RespondEvent />} />
+              {/* ---------------------- */}
+              <Route path="/tick-tack-toe" element={<TickTackToe />} />
+              {/* --------------------- */}
+              <Route path="/explorer" element={<Explorer />} />
+              <Route path="/Timer" element={<Timer />} />
             </Routes>
         </Col>
       </Row>
