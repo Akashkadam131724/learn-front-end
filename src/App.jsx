@@ -29,9 +29,15 @@ function App() {
        <Col span={18}>
           <Routes>
               {/* <Route path="/" element={< AppHeader/>} /> */}
+              
               <Route path="/Counter" element={<Counter />} />
               <Route path="/think-in-react" element={<ThinkInReact />} />
+
+              {/* ----------- */}
               <Route path="/state-component-memory" element={<StateComponentsMemory />} />
+                 <Route path="/respond-events" element={<RespondEvent />} />
+
+                 {/* -------------------------- */}
 
               {/* --------------- */}
               <Route path="/Hooks" element={<LearnHooks />} />
@@ -42,11 +48,11 @@ function App() {
               <Route path="/Hooks/LearnUseContext" element={<LearnUseContext/>} />
               <Route path="/Hooks/LearnCustomHooks" element={<LearnCustomHooks/>} />
 
-              {/* -------------------------- */}
-              <Route path="/respond-events" element={<RespondEvent />} />
-              <Route path="/respond-events" element={<RespondEvent />} />
+           
               {/* ---------------------- */}
               <Route path="/tick-tack-toe" element={<TickTackToe />} />
+
+              
               {/* --------------------- */}
               <Route path="/explorer" element={<Explorer />} />
               <Route path="/Timer" element={<Timer />} />

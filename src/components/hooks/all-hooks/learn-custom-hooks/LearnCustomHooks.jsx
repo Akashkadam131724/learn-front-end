@@ -3,6 +3,11 @@ import { useState, useEffect, useRef } from "react";
 const LearnCustomHooks = () => {
   return (
     <div>
+      <a href="https://github.com/WebDevSimplified/useful-custom-react-hooks"
+      
+      target="_blank"
+      rel="noopener noreferrer"
+      >Examples web dev WebDevSimplified</a>
       <Divider />
       <WelcomeShow />
       <Divider />
