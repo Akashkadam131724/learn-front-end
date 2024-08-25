@@ -101,6 +101,42 @@ const AppHeader = () => {
             </a>
           ),
         },
+         {
+           key: '8aa3sA',
+          label: (
+            <a
+              href="https://react.dev/learn/separating-events-from-effects"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+          separating-events-from-effects
+            </a>
+          ),
+        },
+         {
+           key: '8aa3ssA',
+          label: (
+            <a
+              href="https://react.dev/learn/removing-effect-dependencies"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+          removing-effect-dependencies
+            </a>
+          ),
+        },
+         {
+           key: '8aa3ssAs',
+          label: (
+            <a
+              href="https://react.dev/learn/reusing-logic-with-custom-hooks"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+          Custom Hooks
+            </a>
+          ),
+        },
       ],
     },
     {
@@ -109,15 +145,27 @@ const AppHeader = () => {
       children: [
         {
           key: '7aas',
-          label: <Link to="/Hooks/UseState">UseState Learn</Link>,
+          label: <Link to="/Hooks/UseState">UseState </Link>,
         },
         {
           key: '8a',
-          label: <Link to="/Hooks/UseEffect">UseEffect Learn</Link>,
+          label: <Link to="/Hooks/UseEffect">UseEffect </Link>,
         },
         {
           key: '8as',
-          label: <Link to="/Hooks/useRef">UseRef Learn</Link>,
+          label: <Link to="/Hooks/UseRef">UseRef </Link>,
+        },
+        {
+          key: 's8asa',
+          label: <Link to="/Hooks/UseReducer">UseReducer </Link>,
+        },
+        {
+          key: 's8asaaa',
+          label: <Link to="/Hooks/LearnUseContext">LearnUseContext  </Link>,
+        },
+        {
+          key: '8asass',
+          label: <Link to="/Hooks/LearnCustomHooks">LearnCustomHooks </Link>,
         },
       ],
     },

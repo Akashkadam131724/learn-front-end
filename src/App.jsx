@@ -16,6 +16,8 @@ import {  Row,Col } from "antd";
 import StateComponentsMemory from "./components/respond-events/StateComponentsMemory";
 import UseReducerLearn from "./components/hooks/all-hooks/use-reducer-learn";
 import UseRefLearn from "./components/hooks/all-hooks/use-ref-learn";
+import LearnCustomHooks from "./components/hooks/all-hooks/learn-custom-hooks/LearnCustomHooks";
+import LearnUseContext from "./components/hooks/all-hooks/use-context/learn-use-context";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
               <Route path="/Hooks/UseEffect" element={<UseEffectLearn />} />
               <Route path="/Hooks/UseRef" element={<UseRefLearn />} />
               <Route path="/Hooks/UseReducer" element={<UseReducerLearn/>} />
+              <Route path="/Hooks/LearnUseContext" element={<LearnUseContext/>} />
+              <Route path="/Hooks/LearnCustomHooks" element={<LearnCustomHooks/>} />
 
               {/* -------------------------- */}
               <Route path="/respond-events" element={<RespondEvent />} />

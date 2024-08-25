@@ -1,5 +1,7 @@
 import { Divider } from 'antd';
 import { useState, useRef, useEffect } from 'react';
+// import { experimental_useEffectEvent as useEffectEvent } from 'react';
+
 import NOneedEffect from './no-need-effecct/use-effect-no-need';
 
 const UseEffectLearn = () => {
@@ -103,9 +105,13 @@ const UseEffectLearn = () => {
       <Divider/>
       <h4>Challenge</h4>
         <Challenge3 />
-  <Divider />
-  <h1>No need effects</h1>
-  <NOneedEffect/>
+        <h5>Timer</h5>
+        <Timer/>
+        <h4>Un freeze timer </h4>
+        {/* <Timer2 /> */}
+      <Divider />
+      <h1>No need effects</h1>
+      <NOneedEffect/>
     </div>
   );
 };
@@ -328,6 +334,84 @@ export async function fetchBio(person) {
     </>
   );
 }
+
+ 
+
+export  function Timer() {
+  const [count, setCount] = useState(0);
+  const [increment, setIncrement] = useState(1);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(c => c + increment);
+    }, 1000);
+    return () => {
+      clearInterval(id);
+    };
+  }, [increment]);
+
+  return (
+    <>
+      <h1>
+        Counter: {count}
+        <button onClick={() => setCount(0)}>Reset</button>
+      </h1>
+      <hr />
+      <p>
+        Every second, increment by:
+        <button disabled={increment === 0} onClick={() => {
+          setIncrement(i => i - 1);
+        }}>–</button>
+        <b>{increment}</b>
+        <button onClick={() => {
+          setIncrement(i => i + 1);
+        }}>+</button>
+      </p>
+    </>
+  );
+}
+
+
+ 
+
+export  function Timer2() {
+  const [count, setCount] = useState(0);
+  const [increment, setIncrement] = useState(1);
+
+  const onTick = useEffectEvent(() => {
+    setCount(c => c + increment);
+  });
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      onTick();
+    }, 1000);
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+
+  return (
+    <>
+      <h1>
+        Counter: {count}
+        <button onClick={() => setCount(0)}>Reset</button>
+      </h1>
+      <hr />
+      <p>
+        Every second, increment by:
+        <button disabled={increment === 0} onClick={() => {
+          setIncrement(i => i - 1);
+        }}>–</button>
+        <b>{increment}</b>
+        <button onClick={() => {
+          setIncrement(i => i + 1);
+        }}>+</button>
+      </p>
+    </>
+  );
+}
+
 
 
 
