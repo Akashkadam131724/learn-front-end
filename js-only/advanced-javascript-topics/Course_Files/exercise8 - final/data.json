@@ -1,0 +1,10 @@
+{
+    "heading":"Steps for Using the XMLHttpRequest Object",
+    "bullets":{
+        "b1":"Create a new object.",
+        "b2":"Change the Mime type to json.",
+        "b3":"Use the open method and specify the http verb and file path.",
+        "b4":"Define a callback for the request.",
+        "b5":"Send the request."
+    }
+}
