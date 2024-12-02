@@ -109,3 +109,46 @@ body {
 }
 
  
+
+
+.dropdown {
+  position: relative;
+  width: 200px;
+}
+
+.dropdown input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.dropdown-listbox {
+  position: absolute;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  background: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  /* background-color: #007bff; */
+  text-decoration: underline;
+}
+
+.dropdown-item.active {
+  background-color: #007bff;
+  color: white;
+}
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}

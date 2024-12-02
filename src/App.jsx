@@ -18,6 +18,7 @@ import UseReducerLearn from "./components/hooks/all-hooks/use-reducer-learn";
 import UseRefLearn from "./components/hooks/all-hooks/use-ref-learn";
 import LearnCustomHooks from "./components/hooks/all-hooks/learn-custom-hooks/LearnCustomHooks";
 import LearnUseContext from "./components/hooks/all-hooks/use-context/learn-use-context";
+import SearchSuggestions from "./components/learn-basic-features/search-suggestion/SearchSuggestion";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
               {/* --------------------- */}
               <Route path="/explorer" element={<Explorer />} />
               <Route path="/Timer" element={<Timer />} />
+              <Route path="/suggestion" element={<SearchSuggestions />} />
             </Routes>
         </Col>
       </Row>
