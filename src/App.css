@@ -146,6 +146,7 @@ body {
 
 .dropdown-item.active {
   background-color: #007bff;
+  text-decoration: underline;
   color: white;
 }
 .d-flex {
