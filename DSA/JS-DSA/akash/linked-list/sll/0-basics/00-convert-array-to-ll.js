@@ -32,7 +32,7 @@ class LinkedList {
   }
 }
 
-const arr = [2, 3, 46, 100, 5];
+// const arr = [2, 3, 46, 100, 5];
 const linkedList = new LinkedList();
 linkedList.add("This is my head");
 linkedList.add("This is my second");

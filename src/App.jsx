@@ -20,6 +20,7 @@ import SearchSuggestions from "./components/learn-basic-features/search-suggesti
 import CarouselsWrapper from "./components/challenges/custom-caraousal/Caraousals";
 import CounterWrapper from "./components/challenges/counter/CounterWrapper";
 import ToDoAppChallenge from "./components/challenges/todo-app/ToDoAppChallenge";
+import SearchBox from "./components/challenges/sugeetions/Suggestions";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
             <Route path="/counter" element={<CounterWrapper />} />
             <Route path="/todo-app" element={<ToDoAppChallenge />} />
           </Routes>
+          <SearchBox />
         </Col>
       </Row>
     </Router>

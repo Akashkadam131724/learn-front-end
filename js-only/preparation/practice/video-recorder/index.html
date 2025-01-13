@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Recorder</title>
+  </head>
+  <body>
+    <h1>Video Recorder</h1>
+    <p id="status">Checking camera and microphone permissions...</p>
+    <video id="preview" autoplay muted></video>
+    <video id="recorded" controls style="display: none"></video>
+    <div>
+      <button id="startBtn">Start Recording</button>
+      <button id="stopBtn" disabled>Stop Recording</button>
+      <button id="downloadBtn" disabled>Download Video</button>
+    </div>
+    <script src="video-recorder.js"></script>
+  </body>
+</html>

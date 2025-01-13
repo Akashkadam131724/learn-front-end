@@ -122,6 +122,7 @@ const linkedlist = new LinkedList();
 linkedlist.addFirst(5);
 linkedlist.addFirst(3);
 linkedlist.addFirst(8);
+console.log("size = " + linkedlist.size());
 linkedlist.addLast(6);
 
 linkedlist.removeTop();
@@ -132,4 +133,3 @@ linkedlist.removeLast();
 linkedlist.removeAt(2);
 
 linkedlist.print();
-console.log("size = " + linkedlist.size());

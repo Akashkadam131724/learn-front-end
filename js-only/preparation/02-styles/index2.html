@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main style="position: relative" id="main">
+      <article>
+        <div id="example" style="position: absolute; left: 180px; top: 180px">
+          ...
+        </div>
+      </article>
+    </main>
+    <script>
+      alert(example.offsetParent.id); // main
+      alert(example.offsetLeft); // 180 (note: a number, not a string "180px")
+      alert(example.offsetTop); // 180
+    </script>
+
+    <style>
+      body * {
+        margin: 10px;
+        border: 1px solid blue;
+      }
+    </style>
+
+    <form>
+      FORM
+      <div>
+        DIV
+        <p>P</p>
+      </div>
+    </form>
+
+    <script>
+      for (let elem of document.querySelectorAll("*")) {
+        elem.addEventListener(
+          "click",
+          (e) => alert(`Capturing: ${elem.tagName}`),
+          true
+        );
+        elem.addEventListener("click", (e) =>
+          alert(`Bubbling: ${elem.tagName}`)
+        );
+      }
+    </script>
+  </body>
+</html>

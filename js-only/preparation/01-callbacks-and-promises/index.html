@@ -1,14 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="./01-callbacks.js"></script>
-  <script src="./00-higher-order-func.js"></script>
-</head>
-<body>
-  <h1>Hello callbacks</h1>
-  <a href="https://www.youtube.com/playlist?list=PLTo9PCskHpbGFyHztfjgsA2gNfFCTZNzq">Link</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callbacks</title>
+    <!-- <script src="./01-callbacks.js"></script> -->
+    <!-- <script src="./00-higher-order-func.js"></script> -->
+    <script src="./02-promises.js"></script>
+  </head>
+  <body class="main page">
+    <h1>Hello callbacks</h1>
+    <!-- <a
+      href="https://www.youtube.com/playlist?list=PLTo9PCskHpbGFyHztfjgsA2gNfFCTZNzq"
+      >Link</a
+    >
+    <script>
+      let src = "./01-callbacks.js";
+      let src2 = "./00-higher-order-func.js";
+      let src3 = "./00-higher-order-func.js";
+      function loadScript(src, callback) {
+        let script = document.createElement("script");
+        script.src = src;
+        script.onerror = () => callback(new Error("Could not load"));
+        script.onload = () => callback(null, script);
+        document.head.appendChild(script);
+      }
+
+      const script1 = (error, myScript) => {
+        if (error) {
+          alert(error);
+        } else {
+          alert("script 1 loaded");
+
+          loadScript(src2, script2);
+        }
+      };
+
+      function script2(error, myScript) {
+        if (error) {
+          alert(error);
+        } else {
+          alert("script 2 loaded");
+          loadScript(src3, script3);
+        }
+      }
+
+      const script3 = function (error, myScript) {
+        if (error) {
+          alert(error);
+        } else {
+          alert("script 3 loaded");
+        }
+      };
+
+      // loadScript(src, script1);
+      // loadScript(src, function (script) {
+      //   loadScript(src2, function (script2) {
+      //     loadScript(script3, function (script) {});
+      //   });
+      // });
+    </script> -->
+    <!-- <div id="div">Button</div> -->
+
+    <!-- <script>
+      // we can set special style flags like "important" here
+      div.style.cssText = `color: red !important;
+       background-color: yellow;
+       width: 100px;
+       text-align: center;
+     `;
+
+      alert(div.style.cssText);
+    </script>
+    <script>
+      for (let name of document.body.classList) {
+        alert(name); // main, and then page
+      }
+      document.body.style.background = "red"; //set background to red
+
+      setTimeout(() => document.body.style.removeProperty("background"), 1000);
+    </script> -->
+    <!-- <script>
+      // doesn't work!
+      document.body.style.margin = 20;
+      alert(document.body.style.margin); // '' (empty string, the assignment is ignored)
+
+      // now add the CSS unit (px) - and it works
+      document.body.style.margin = "20px";
+      alert(document.body.style.margin); // 20px
+
+      alert(document.body.style.marginTop); // 20px
+      alert(document.body.style.marginLeft); // 20px
+    </script> -->
+    <!-- <script>
+      let computedStyle = getComputedStyle(document.body);
+
+      // now we can read the margin and the color from it
+      console.log(computedStyle);
+
+      alert(computedStyle.marginTop); // 5px
+      alert(computedStyle.color); // rgb(255, 0, 0)
+    </script> -->
+  </body>
 </html>

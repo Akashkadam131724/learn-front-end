@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Taker and Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Photo Taker & Gallery</h1>
+      <div class="camera-section">
+        <video id="video" autoplay></video>
+        <button id="capture-btn">Capture Photo</button>
+        <canvas id="canvas" hidden></canvas>
+      </div>
+      <div class="gallery-section">
+        <h2>Gallery</h2>
+        <div id="gallery"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Push Notification Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Web Push Notification Example</h1>
+    <p>Click the button below to see a push notification.</p>
+    <button onclick="showNotification()">Show Notification</button>
+
+    <script>
+      // Function to show a notification
+      function showNotification() {
+        // Check if the browser supports Notifications
+        if (!("Notification" in window)) {
+          alert("This browser does not support desktop notifications.");
+          return;
+        }
+
+        // Request permission to show notifications
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            // Create and display the notification
+            new Notification("Hello!", {
+              body: "This is your push notification.",
+            });
+          } else if (permission === "denied") {
+            alert("You denied the notification permission.");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1 class="section-title">Todo App</h1>
+    </div>
+    <div>
+      <input type="text" name="todo" id="todo" />
+      <button id="addButton">Add</button>
+    </div>
+    <div id="todos"></div>
+    <script>
+      let addButton = document.getElementById("addButton");
+      let todo = document.getElementById("todo");
+      let allTodos = [];
+
+      addButton.addEventListener("click", function (e) {
+        if (todo.value) {
+          allTodos.push({
+            task: todo.value,
+            id: new Date().toLocaleDateString(),
+          });
+        } else {
+          alert("please type ");
+        }
+        console.log(allTodos);
+
+        todo.value = "";
+      });
+    </script>
+  </body>
+</html>

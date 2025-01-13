@@ -30,7 +30,9 @@ var mergeAlternately = function (word1, word2) {
   return res;
 };
 
+console.log("hello");
 // console.log(mergeAlternately("cf23", " "));
+console.log(mergeAlternately("1234", "abcdefg"));
 
 // ------------------------------------------------------------------------------------
 

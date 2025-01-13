@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smooth Infinite Slider</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .slider-container {
+        width: 100%; /* Full width of the container */
+        overflow: hidden;
+        background: #ddd;
+      }
+
+      .slider {
+        display: flex;
+        animation: slide 20s linear infinite; /* Smooth animation */
+      }
+
+      .slider img {
+        height: 80px;
+        width: 200px; /* Maintain aspect ratio */
+        flex-shrink: 0;
+      }
+
+      /* Keyframes for smooth sliding animation */
+      @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider">
+        <img src="https://via.placeholder.com/800x80/FF5733" alt="Image 1" />
+        <img src="https://via.placeholder.com/800x80/33FF57" alt="Image 2" />
+        <img src="https://via.placeholder.com/800x80/FF5733" alt="Image 1" />
+        <img src="https://via.placeholder.com/800x80/33FF57" alt="Image 2" />
+        <img src="https://via.placeholder.com/800x80/FF5733" alt="Image 1" />
+        <img src="https://via.placeholder.com/800x80/33FF57" alt="Image 2" />
+        <img src="https://via.placeholder.com/800x80/FF5733" alt="Image 1" />
+        <img src="https://via.placeholder.com/800x80/33FF57" alt="Image 2" />
+      </div>
+    </div>
+  </body>
+</html>

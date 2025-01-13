@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.slider {
+  display: flex;
+  width: fit-content;
+  animation: slide 10s linear infinite;
+}
+
+.slider img {
+  height: 8px;
+  flex-shrink: 0;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

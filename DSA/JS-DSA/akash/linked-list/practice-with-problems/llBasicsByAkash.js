@@ -1,3 +1,18 @@
+// insert at start
+// remove at start
+// insert at end
+// remove at end
+// size
+// print
+// insert at any index from start
+// remove at any index from start
+
+// palindrome linked  list
+// reverse linked list
+// insert at any index from end
+// remove nth node from end linked list
+// adding two numbers
+
 class Node {
   constructor(data) {
     this.data = data;
@@ -114,73 +129,14 @@ class LinkedList {
       current.next = current.next.next;
     }
   }
-
-  reverse() {
-    let current = this.head;
-    let prev = null;
-    while (current !== null) {
-      let nextNode = current.next;
-      current.next = prev;
-      prev = current;
-      current = nextNode;
-    }
-
-    this.head = prev;
-  }
-
-  palindrome() {
-    let current = this.head;
-    let str1 = "";
-    let str2 = "";
-    while (current !== null) {
-      str1 = `${str1}${current.data}`;
-      str2 = `${current.data}${str2}`;
-      current = current.next;
-    }
-    return str1 === str2;
-  }
-}
-
-function reverseWithRecursive(head) {
-  if (head === null || head.next === null) {
-    return head;
-  }
-  var newHead = reverseWithRecursive(head.next);
-  var front = head.next;
-  front.next = head;
-  head.next = null;
-  head = newHead;
-}
-
-const printLinkedListByArray = (head) => {
-  let current = head;
-
-  let result = [];
-  while (current) {
-    result.push(current.data);
-    current = current.next;
-  }
-  console.log(result.join("->"));
-};
-
-function printLinkedList(head) {
-  let currentNode = head;
-
-  while (currentNode != null) {
-    console.log(currentNode.data);
-    currentNode = currentNode.next;
-  }
-}
-
-function lineBreaker() {
-  console.log("--------------------------------");
 }
 
 const ll = new LinkedList();
-ll.appendStart("1");
-ll.appendStart("1");
-ll.appendStart("1");
-
+ll.appendStart("start4");
+ll.appendStart("start3");
+ll.appendStart("start2");
+ll.appendStart("start");
+ll.appendLast("last2");
 // ll.print();
 // console.log("currentSize", ll.size());
 // ll.removeLast();
@@ -188,26 +144,8 @@ ll.appendStart("1");
 // console.log();
 // ll.appendAt(0, "in serted by me");
 // ll.addAt(2, "in serted");
-// ll.printData();
+ll.printData();
 
-// ll.removeAt(4);
-
-// ll.printData();
-
-// console.log("currentSize", ll.size());
-// printLinkedListByArray(ll.head);
-// ll.reverse();
-// reverseWithRecursive(ll.head);
-lineBreaker();
-console.log(ll.palindrome());
-
-printLinkedListByArray(ll.head);
-// printLinkedList(ll.head);
-
-// palindrome linked  list
-// reverse linked list
-// delete a node in linked list
-// clear the linked list
-// remove nth node from start linked list
-// remove nth node from end linked list
-// adding two numbers
+ll.removeAt(4);
+console.log("--------------------------------");
+ll.printData();
