@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note Taking App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      #notes-list {
+        width: 30%;
+        border-right: 1px solid #ccc;
+        padding: 10px;
+        background-color: #fff;
+        height: 100%;
+        overflow-y: auto;
+      }
+      #notes-list h3 {
+        margin-top: 0;
+      }
+      #notes-list ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      #notes-list li {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+      }
+      #notes-list li:hover {
+        background-color: #f0f0f0;
+      }
+      #note-content {
+        flex: 1;
+        padding: 20px;
+        background-color: #fff;
+        overflow-y: auto;
+      }
+      #note-title {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        min-height: 30px;
+        background-color: #fff;
+        outline: none;
+      }
+      #note-body {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+      }
+      button {
+        padding: 8px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="notes-list">
+      <h3>Notes</h3>
+      <button id="add-note-btn">Add Note</button>
+      <ul id="notes"></ul>
+    </div>
+
+    <div id="note-content">
+      <h3>Note Title:</h3>
+      <div id="note-title" contenteditable="true">Select a note</div>
+      <textarea id="note-body"></textarea>
+      <button id="save-note-btn">Save Note</button>
+      <button id="delete-note-btn">Delete Note</button>
+    </div>
+
+    <script>
+      const notesList = document.getElementById("notes");
+      const noteTitle = document.getElementById("note-title");
+      const noteBody = document.getElementById("note-body");
+      const addNoteBtn = document.getElementById("add-note-btn");
+      const saveNoteBtn = document.getElementById("save-note-btn");
+      const deleteNoteBtn = document.getElementById("delete-note-btn");
+
+      let notes = [];
+      let currentNoteId = null;
+
+      // Add a new note
+      addNoteBtn.addEventListener("click", () => {
+        const noteId = new Date().getTime();
+        const note = {
+          id: noteId,
+          title: `Note ${notes.length + 1}`,
+          content: `This is the content of Note ${notes.length + 1}.`,
+        };
+        notes.push(note);
+        renderNotes();
+        selectNote(noteId);
+      });
+
+      // Render the list of notes
+      function renderNotes() {
+        notesList.innerHTML = "";
+        notes.forEach((note) => {
+          const li = document.createElement("li");
+          li.textContent = note.title;
+          li.addEventListener("click", () => selectNote(note.id));
+          notesList.appendChild(li);
+        });
+      }
+
+      // Select a note and display its content
+      function selectNote(id) {
+        const note = notes.find((n) => n.id === id);
+        if (note) {
+          currentNoteId = id;
+          noteTitle.textContent = note.title;
+          noteBody.value = note.content;
+        }
+      }
+
+      // Save the edited note
+      saveNoteBtn.addEventListener("click", () => {
+        const updatedTitle = noteTitle.textContent; // Get the updated title
+        const updatedContent = noteBody.value; // Get the updated content
+
+        const note = notes.find((n) => n.id === currentNoteId);
+        if (note) {
+          note.title = updatedTitle;
+          note.content = updatedContent;
+
+          // Move the updated note to the top
+          notes = notes.filter((n) => n.id !== currentNoteId);
+          notes.unshift(note); // Add updated note at the top
+          renderNotes();
+        }
+      });
+
+      // Delete the current note
+      deleteNoteBtn.addEventListener("click", () => {
+        notes = notes.filter((n) => n.id !== currentNoteId);
+        currentNoteId = null;
+        noteTitle.textContent = "Select a note";
+        noteBody.value = "";
+        renderNotes();
+      });
+
+      // Initial Render
+      renderNotes();
+    </script>
+  </body>
+</html>

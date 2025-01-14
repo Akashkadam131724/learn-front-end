@@ -3,35 +3,181 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Todo App</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div>
-      <h1 class="section-title">Todo App</h1>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h1 class="section-title">Todo App</h1>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-8 offset-md-2 d-flex">
+          <input
+            type="text"
+            name="todo"
+            id="todo"
+            class="form-control me-2"
+            placeholder="Enter a task"
+          />
+          <button id="addButton" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-8 offset-md-2 d-flex justify-content-between">
+          <button id="filterAll" class="btn btn-outline-secondary">All</button>
+          <button id="filterCompleted" class="btn btn-outline-success">
+            Completed
+          </button>
+          <button id="sortRecentCompleted" class="btn btn-outline-info">
+            Sort by Recent Completed
+          </button>
+          <button id="sortRecentAdded" class="btn btn-outline-primary">
+            Sort by Recent Added
+          </button>
+          <button id="downloadData" class="btn btn-outline-dark">
+            Download Data
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div id="todos" class="list-group"></div>
+        </div>
+      </div>
     </div>
-    <div>
-      <input type="text" name="todo" id="todo" />
-      <button id="addButton">Add</button>
-    </div>
-    <div id="todos"></div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       let addButton = document.getElementById("addButton");
-      let todo = document.getElementById("todo");
+      let todoInput = document.getElementById("todo");
+      let todosContainer = document.getElementById("todos");
+      let filterAll = document.getElementById("filterAll");
+      let filterCompleted = document.getElementById("filterCompleted");
+      let sortRecentCompleted = document.getElementById("sortRecentCompleted");
+      let sortRecentAdded = document.getElementById("sortRecentAdded");
+      let downloadData = document.getElementById("downloadData");
+
       let allTodos = [];
+      let filteredTodos = [];
 
-      addButton.addEventListener("click", function (e) {
-        if (todo.value) {
-          allTodos.push({
-            task: todo.value,
-            id: new Date().toLocaleDateString(),
+      function renderTodos(todos) {
+        todosContainer.innerHTML = "";
+        todos.forEach((todoItem) => {
+          let todoDiv = document.createElement("div");
+          todoDiv.className =
+            "list-group-item d-flex align-items-center justify-content-between";
+
+          let leftSection = document.createElement("div");
+          leftSection.className = "d-flex align-items-center";
+
+          let checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.className = "form-check-input me-2";
+          checkbox.checked = todoItem.completed;
+
+          checkbox.addEventListener("change", () => {
+            todoItem.completed = checkbox.checked;
+            todoItem.completedAt = checkbox.checked ? new Date() : null;
+            renderTodos(filteredTodos.length ? filteredTodos : allTodos);
           });
-        } else {
-          alert("please type ");
-        }
-        console.log(allTodos);
 
-        todo.value = "";
+          let taskText = document.createElement("span");
+          taskText.contentEditable = true;
+          taskText.className = "task-text";
+          taskText.textContent = todoItem.task;
+          taskText.style.outline = "none";
+
+          taskText.addEventListener("blur", () => {
+            todoItem.task = taskText.textContent.trim();
+          });
+
+          leftSection.appendChild(checkbox);
+          leftSection.appendChild(taskText);
+
+          let timestamp = document.createElement("small");
+          timestamp.className = "text-muted";
+          timestamp.textContent = `Added: ${todoItem.addedAt.toLocaleString()}`;
+          if (todoItem.completedAt) {
+            timestamp.textContent += ` | Completed: ${todoItem.completedAt.toLocaleString()}`;
+          }
+
+          todoDiv.appendChild(leftSection);
+          todoDiv.appendChild(timestamp);
+          todosContainer.appendChild(todoDiv);
+        });
+      }
+
+      function handleAddButtonDisable() {
+        addButton.disabled = !todoInput.value.trim();
+      }
+
+      function handleAddTodo() {
+        if (todoInput.value.trim()) {
+          allTodos.push({
+            task: todoInput.value.trim(),
+            addedAt: new Date(),
+            completedAt: null,
+            completed: false,
+          });
+          todoInput.value = "";
+          addButton.disabled = true;
+          renderTodos(allTodos);
+        } else {
+          alert("Please type a task");
+        }
+      }
+
+      function downloadTodos() {
+        const dataStr = JSON.stringify(allTodos, null, 2);
+        const blob = new Blob([dataStr], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "todos.json";
+        a.click();
+
+        URL.revokeObjectURL(url);
+      }
+
+      filterAll.addEventListener("click", () => {
+        filteredTodos = [];
+        renderTodos(allTodos);
       });
+
+      filterCompleted.addEventListener("click", () => {
+        filteredTodos = allTodos.filter((todo) => todo.completed);
+        renderTodos(filteredTodos);
+      });
+
+      sortRecentCompleted.addEventListener("click", () => {
+        allTodos.sort((a, b) => {
+          if (a.completedAt && b.completedAt) {
+            return b.completedAt - a.completedAt;
+          }
+          return !a.completedAt ? 1 : -1;
+        });
+        renderTodos(allTodos);
+      });
+
+      sortRecentAdded.addEventListener("click", () => {
+        allTodos.sort((a, b) => b.addedAt - a.addedAt);
+        renderTodos(allTodos);
+      });
+
+      downloadData.addEventListener("click", downloadTodos);
+
+      todoInput.oninput = handleAddButtonDisable;
+      addButton.addEventListener("click", handleAddTodo);
+
+      handleAddButtonDisable();
     </script>
   </body>
 </html>
