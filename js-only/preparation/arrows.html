@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Design</title>
+    <style>
+      .arrow-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #fff; /* Background for the button */
+        border-radius: 50%;
+        border: 1px solid #181a53;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .arrow-button:hover {
+        background-color: #181a53;
+        border-color: #181a53;
+      }
+
+      .arrow-button::before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-right: 2px solid #181a53;
+        border-bottom: 2px solid #181a53;
+        transition: border-color 0.3s ease;
+      }
+
+      /* Left arrow */
+      .arrow-button.left::before {
+        transform: rotate(135deg);
+      }
+
+      /* Right arrow */
+      .arrow-button.right::before {
+        transform: rotate(-45deg);
+      }
+
+      .arrow-button:hover::before {
+        border-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="arrow-button left"></button>
+    <button class="arrow-button right"></button>
+  </body>
+</html>
