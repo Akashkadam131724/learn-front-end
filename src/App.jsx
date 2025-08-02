@@ -21,14 +21,15 @@ import CarouselsWrapper from "./components/challenges/custom-caraousal/Caraousal
 import CounterWrapper from "./components/challenges/counter/CounterWrapper";
 import ToDoAppChallenge from "./components/challenges/todo-app/ToDoAppChallenge";
 import SearchBox from "./components/challenges/sugeetions/Suggestions";
+import Practice from "./components/practice/practice";
 
 function App() {
   return (
     <Router>
       <Row>
-        <Col span={6}>
+        {/* <Col span={6}>
           <AppHeader />
-        </Col>
+        </Col> */}
         <Col span={18}>
           <Routes>
             {/* <Route path="/" element={< AppHeader/>} /> */}
@@ -69,8 +70,10 @@ function App() {
             <Route path="/carousel" element={<CarouselsWrapper />} />
             <Route path="/counter" element={<CounterWrapper />} />
             <Route path="/todo-app" element={<ToDoAppChallenge />} />
+            <Route path="/search-box" element={<SearchBox />} />
+            {/* --------------------- */}
+            <Route path="/practice" element={<Practice />} />
           </Routes>
-          <SearchBox />
         </Col>
       </Row>
     </Router>

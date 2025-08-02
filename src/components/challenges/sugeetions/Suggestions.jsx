@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./SearchBox.css";
 
 const suggestions = [
   "Apple",
@@ -103,7 +102,6 @@ const SearchBox = () => {
 };
 
 export default SearchBox;
-
 
 // import axios from "axios";
 // import Image from "next/image";
@@ -322,5 +320,3 @@ export default SearchBox;
 // };
 
 // export default SearchBoxV2;
-
-

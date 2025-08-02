@@ -296,6 +296,20 @@ export const menuItems = [
         key: "3asas",
         label: <Link to="/carousel">Carousels</Link>,
       },
+      {
+        key: "3asaas",
+        label: <Link to="/search-box">Search</Link>,
+      },
+    ],
+  },
+  {
+    key: "Challenges",
+    label: "Practice",
+    children: [
+      {
+        key: "Challenges1",
+        label: <Link to="/practice">practice</Link>,
+      },
     ],
   },
 ];
