@@ -26,7 +26,7 @@ Track your journey from **beginner to advanced** in React and React Hooks with p
 | 6   | Expand/Collapse FAQ     | ⬜     | Done  |
 | 9   | Image Gallery           | ⬜     | Done  |
 | 7   | Greet User Form         | ⬜     | Done  |
-| 8   | Simple Timer            | ⬜     |       |
+| 8   | Simple Timer            | ⬜     | Done  |
 | 10  | Dark/Light Theme Toggle | ⬜     |       |
 
 ---

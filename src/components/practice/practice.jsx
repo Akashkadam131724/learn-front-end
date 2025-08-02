@@ -5,6 +5,7 @@ import PassWordToggler from "./passWordToggler";
 import ColorPicker from "./colorPicker";
 import Faq from "./faq";
 import ImageGallery from "./image-gallery";
+import Timer from "./Timer";
 
 const Practice = () => {
   return (
@@ -22,8 +23,9 @@ const Practice = () => {
       <ColorPicker />
       <Divider />
       <Faq />
-      <Divider /> */}
-      <ImageGallery />
+      <Divider />
+      <ImageGallery /> */}
+      <Timer />
     </div>
   );
 };
