@@ -6,6 +6,7 @@ import ColorPicker from "./colorPicker";
 import Faq from "./faq";
 import ImageGallery from "./image-gallery";
 import Timer from "./Timer";
+import CurrentPractice from "./CurrentPractice";
 
 const Practice = () => {
   return (
@@ -25,7 +26,8 @@ const Practice = () => {
       <Faq />
       <Divider />
       <ImageGallery /> */}
-      <Timer />
+      {/* <Timer /> */}
+      <CurrentPractice />
     </div>
   );
 };
