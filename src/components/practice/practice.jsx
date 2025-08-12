@@ -7,6 +7,7 @@ import Faq from "./faq";
 import ImageGallery from "./image-gallery";
 import Timer from "./Timer";
 import CurrentPractice from "./CurrentPractice";
+import CanvasExample from "./CanvasLearn";
 
 const Practice = () => {
   return (
@@ -27,7 +28,8 @@ const Practice = () => {
       <Divider />
       <ImageGallery /> */}
       {/* <Timer /> */}
-      <CurrentPractice />
+      {/* <CurrentPractice /> */}
+      <CanvasExample />
     </div>
   );
 };
