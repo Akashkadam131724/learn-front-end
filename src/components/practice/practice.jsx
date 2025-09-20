@@ -8,6 +8,7 @@ import ImageGallery from "./image-gallery";
 import Timer from "./Timer";
 import CurrentPractice from "./CurrentPractice";
 import CanvasExample from "./CanvasLearn";
+import HookUseReducer from "./HookUseReducer";
 
 const Practice = () => {
   return (
@@ -29,7 +30,8 @@ const Practice = () => {
       <ImageGallery /> */}
       {/* <Timer /> */}
       {/* <CurrentPractice /> */}
-      <CanvasExample />
+      {/* <CanvasExample /> */}
+      <HookUseReducer />
     </div>
   );
 };

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dates in js</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --color-black: #000;
+        --color-white: #fff;
+      }
+
+      body {
+        padding: 40px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        background: var(--color-black);
+        color: var(--color-white);
+      }
+
+      .box {
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid var(--color-white);
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        li {
+          margin: 0px 20px;
+        }
+      }
+
+      button {
+        padding: 14px 0px;
+        flex: none;
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <ol class="box">
+      <li>Time Zones</li>
+      <li>GMT (Greenwich Mean Time) Time Zone</li>
+      <li>UTC (Coordinated Universal Time)</li>
+      <li>ISO Standard (International Organization for Standardization)</li>
+      <li>How computers keep track of time?</li>
+      <li>Unix Time and Unix Epoch</li>
+    </ol>
+    <h1>Date in Javascript</h1>
+    <div class="box">
+      <h2 id="date">Current Date & time</h2>
+      <button onclick="showDate()">Show Date</button>
+    </div>
+
+    <div class="box">
+      <h2 id="date">Different formats</h2>
+
+      <p><strong>toDateString</strong> <span id="dateString"></span></p>
+      <p><strong>toLocaleString</strong> <span id="locateString"></span></p>
+      <p><strong>toUTCString</strong> <span id="utcString"></span></p>
+      <button onclick="showFormats()">Show Formats</button>
+    </div>
+    <script>
+      function showDate() {
+        const date = new Date();
+        let myDate = document.getElementById("my-date");
+        if (myDate) {
+          myDate.textContent = date;
+          return;
+        }
+        let dateNode = document.getElementById("date");
+        let createDate = document.createElement("p");
+        createDate.textContent = date;
+        createDate.id = "my-date";
+        dateNode.insertAdjacentElement("afterend", createDate);
+      }
+
+      function showFormats() {
+        let date = new Date();
+        // console.log("toString", date.toString());
+
+        console.log(date.toLocaleString());
+        console.dir(date);
+      }
+    </script>
+  </body>
+</html>

@@ -27,9 +27,9 @@ function App() {
   return (
     <Router>
       <Row>
-        {/* <Col span={6}>
+        <Col span={6}>
           <AppHeader />
-        </Col> */}
+        </Col>
         <Col span={18}>
           <Routes>
             {/* <Route path="/" element={< AppHeader/>} /> */}

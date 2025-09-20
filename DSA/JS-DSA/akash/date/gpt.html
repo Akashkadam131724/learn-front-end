@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Learning JavaScript Date Update</title>
+    <style>
+      :root {
+        /* ----------------------
+         Fonts
+      ----------------------- */
+        --font-family: "Manrope", sans-serif;
+        --font-aptos: "aptos", Manrope, sans-serif;
+
+        /* ----------------------
+         Base Colors
+      ----------------------- */
+        --white: #ffffff;
+        --f5f5f5: #f5f5f5;
+        --f8f8fc: #f8f8fc;
+        --border: #70707033;
+
+        /* Greys */
+        --grey: #b2b2b2;
+        --light-grey: #585858;
+        --dark-grey: #585858;
+        --white-grey: #e2e2e2;
+        --pale-grey: #f0f5ff;
+
+        /* ----------------------
+         Blues
+      ----------------------- */
+        --blue: #0362d3; /* Primary button */
+        --cobalt-blue: #2151c5;
+        --button-theme-color: #0362d3;
+        --powder-blue: #adc6ff;
+        --navy-blue: #181a53;
+        --navy-blue-dark: #001845;
+        --soft-blue: #7275e6;
+        --dusk-blue: #292c8a;
+        --pale-blue: #f1f5fe;
+        --light-blue: #5dcfea;
+        --blueberry: #3b3e9f;
+
+        /* ----------------------
+         Accent Colors
+      ----------------------- */
+        --golden: #ffb700;
+        --piss-yellow: #e6ca2f;
+        --light-tan: #fceec3;
+        --turtle-green: #77ba63;
+        --dull-teal: #62aa99;
+        --natural-green: #2c7f08;
+
+        /* ----------------------
+         Semantic Colors
+      ----------------------- */
+        --success: var(--turtle-green);
+        --warning: var(--golden);
+        --error: #ef4444;
+        --info: var(--blue);
+
+        /* ----------------------
+         Theme Usage
+      ----------------------- */
+        /* Backgrounds */
+        --bg-light: var(--f8f8fc);
+        --bg-muted: var(--pale-grey);
+        --bg-dark: var(--navy-blue-dark);
+
+        /* Cards */
+        --card-light: var(--white);
+        --card-dark: var(--navy-blue);
+        --card-border: var(--border);
+
+        /* Buttons */
+        --btn-primary: var(--button-theme-color);
+        --btn-primary-hover: var(--cobalt-blue);
+        --btn-success: var(--natural-green);
+        --btn-danger: var(--error);
+        --btn-warning: var(--warning);
+
+        /* Text */
+        --text-primary: var(--dark-grey);
+        --text-secondary: var(--light-grey);
+        --text-muted: var(--grey);
+        --text-light: var(--white);
+      }
+
+      * {
+        margin: 0px;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        padding: 20px;
+        background: var(--bg-light);
+        font-family: var(--font-family);
+        font-size: 100%;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      .box {
+        border: 1px solid var(--card-border);
+        padding: 15px;
+        margin: 10px 0;
+        background: var(--card-light);
+        border: 1px solid var(--card-border);
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        background: var(--btn-primary);
+        color: var(--text-light);
+        border: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: var(--btn-primary-hover);
+      }
+
+      code {
+        background: #eee;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Date Examples Update</h1>
+
+    <div class="box">
+      <h2>Current Date & Time</h2>
+      <p id="current"></p>
+      <button onclick="showCurrent()">Show Current Date & Time</button>
+    </div>
+
+    <div class="box">
+      <h2>Different Formats</h2>
+      <p><strong>toDateString:</strong> <span id="dateString"></span></p>
+      <p><strong>toLocaleString:</strong> <span id="localeString"></span></p>
+      <p><strong>toUTCString:</strong> <span id="utcString"></span></p>
+      <button onclick="showFormats()">Show Formats</button>
+    </div>
+
+    <div class="box">
+      <h2>Extract Parts of Date</h2>
+      <p><strong>Year:</strong> <span id="year"></span></p>
+      <p><strong>Month:</strong> <span id="month"></span></p>
+      <p><strong>Date:</strong> <span id="date"></span></p>
+      <p><strong>Day of Week:</strong> <span id="day"></span></p>
+      <p><strong>Hours:</strong> <span id="hours"></span></p>
+      <p><strong>Minutes:</strong> <span id="minutes"></span></p>
+      <p><strong>Seconds:</strong> <span id="seconds"></span></p>
+      <button onclick="extractParts()">Extract Parts</button>
+    </div>
+
+    <script>
+      function showCurrent() {
+        const now = new Date();
+        document.getElementById("current").textContent = now;
+      }
+
+      function showFormats() {
+        const now = new Date();
+        document.getElementById("dateString").textContent = now.toDateString();
+        document.getElementById("localeString").textContent =
+          now.toLocaleString();
+        document.getElementById("utcString").textContent = now.toUTCString();
+      }
+
+      function extractParts() {
+        setInterval(() => {
+          const now = new Date();
+          document.getElementById("year").textContent = now.getFullYear();
+          document.getElementById("month").textContent = now.getMonth() + 1; // 0-based
+          document.getElementById("date").textContent = now.getDate();
+          document.getElementById("day").textContent = now.getDay(); // 0=Sunday
+          document.getElementById("hours").textContent = now.getHours();
+          document.getElementById("minutes").textContent = now.getMinutes();
+          document.getElementById("seconds").textContent = now.getSeconds();
+        }, [1000]);
+      }
+    </script>
+  </body>
+</html>
